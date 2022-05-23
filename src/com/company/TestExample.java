@@ -3,7 +3,7 @@ package com.company;
 import java.util.*;
 
 
-class TestExample{
+class TestExample {
 
     public static void main(String[] args) {
         ListUnluckyVassal listUnluckyVassal = new ListUnluckyVassal();

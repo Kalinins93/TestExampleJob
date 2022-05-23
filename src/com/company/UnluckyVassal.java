@@ -4,6 +4,10 @@ import java.util.*;
 
 class UnluckyVassal {
 
+    public UnluckyVassal parent;
+    public String name;
+    public List<UnluckyVassal> vassals;
+
     public UnluckyVassal(String name) {
         this.name = name;
     }
@@ -34,11 +38,4 @@ class UnluckyVassal {
     public void setVassals(List<UnluckyVassal> vassals) {
         this.vassals = vassals;
     }
-
-    public UnluckyVassal parent;
-
-    public String name;
-    public List<UnluckyVassal> vassals;
-
-
 }

@@ -12,7 +12,6 @@ public class ListUnluckyVassal {
         this.listVassals.add(king);
     }
 
-
     public UnluckyVassal findUnluckyVassal(String name) {
         for (UnluckyVassal element : this.listVassals) {
             if (element.getName().contains(name)) {
