@@ -3,22 +3,19 @@ package com.company;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class SetUnluckyVassal {
-    public ArrayList<UnluckyVassal> sortedSet;
+public class ListUnluckyVassal {
+    public ArrayList<UnluckyVassal> listVassals;
 
-    public SetUnluckyVassal() {
-        this.sortedSet = new ArrayList<>();
+    public ListUnluckyVassal() {
+        this.listVassals = new ArrayList<>();
         UnluckyVassal king = new UnluckyVassal("Король");
-        this.sortedSet.add(king);
+        this.listVassals.add(king);
     }
 
-    public ArrayList<UnluckyVassal> getSortedSet() {
-        return sortedSet;
-    }
 
 
     public UnluckyVassal findUnluckyVassal(String name) {
-        for (UnluckyVassal element : this.sortedSet) {
+        for (UnluckyVassal element : this.listVassals) {
             if (element.getName().contains(name)) {
                 return element;
             }
@@ -34,7 +31,7 @@ public class SetUnluckyVassal {
             if (this.findUnluckyVassal(vassal) == null) {
                 UnluckyVassal tempUnluckyVassal = new UnluckyVassal(vassal);
                 tempUnluckyVassal.setParent(parent);
-                this.sortedSet.add(tempUnluckyVassal);
+                this.listVassals.add(tempUnluckyVassal);
                 listvassal.add(tempUnluckyVassal);
             } else {
                 this.findUnluckyVassal(vassal).setParent(parent);
@@ -46,24 +43,24 @@ public class SetUnluckyVassal {
         return listvassal;
     }
     public void addVassalKing( UnluckyVassal child) {
-        if(this.sortedSet.get(0).getVassals()==null){
+        if(this.listVassals.get(0).getVassals()==null){
             List<UnluckyVassal> listvassal = new ArrayList<>();
             listvassal.add(child);
-            this.sortedSet.get(0).setVassals(listvassal);
+            this.listVassals.get(0).setVassals(listvassal);
         }
         else
         {
-            this.sortedSet.get(0).getVassals().add(child);
+            this.listVassals.get(0).getVassals().add(child);
         }
 
     }
-    public void writeSetUnluckyVassal(List<String> pollResults) {
+    public void writeListUnluckyVassal(List<String> pollResults) {
         for (String items : pollResults) {
             if (!items.contains(":")) {
                 if (this.findUnluckyVassal(items) == null) {
                     UnluckyVassal unluckyVassal = new UnluckyVassal();
                     unluckyVassal.setName(items);
-                    this.sortedSet.add(unluckyVassal);
+                    this.listVassals.add(unluckyVassal);
                 }
             } else {
 
@@ -74,7 +71,7 @@ public class SetUnluckyVassal {
                     UnluckyVassal unluckyVassal = new UnluckyVassal();
                     unluckyVassal.setName(name);
                     unluckyVassal.setVassals(this.addList(values, unluckyVassal));
-                    this.sortedSet.add(unluckyVassal);
+                    this.listVassals.add(unluckyVassal);
                 } else {
                     this.findUnluckyVassal(name).setVassals(this.addList(values, this.findUnluckyVassal(name)));
                 }
@@ -83,15 +80,15 @@ public class SetUnluckyVassal {
     }
 
     public void sortVassalForKing() {
-        for (UnluckyVassal element : this.sortedSet) {
+        for (UnluckyVassal element : this.listVassals) {
             if (element.getParent()== null&& element.getName()!="Король") {
-                this.sortedSet.get(this.sortedSet.lastIndexOf(element)).setParent(this.findUnluckyVassal("Король"));
+                this.listVassals.get(this.listVassals.lastIndexOf(element)).setParent(this.findUnluckyVassal("Король"));
             }
 
 
         }
         List<UnluckyVassal> list=null;
-        for (UnluckyVassal element : this.sortedSet) {
+        for (UnluckyVassal element : this.listVassals) {
             if (element.getParent()!=null&&element.getParent().getName()=="Король")
             {
               addVassalKing(element);
@@ -115,7 +112,7 @@ public class SetUnluckyVassal {
 
     }}
     public void printReportForKing() {
-        for (UnluckyVassal element : this.sortedSet) {
+        for (UnluckyVassal element : this.listVassals) {
 
             if (element.getParent() == null) {
                 System.out.println(element.getName());
