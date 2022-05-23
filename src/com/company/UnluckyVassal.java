@@ -40,4 +40,5 @@ class UnluckyVassal {
     public String name;
     public List<UnluckyVassal> vassals;
 
+
 }

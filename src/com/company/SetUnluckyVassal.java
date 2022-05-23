@@ -86,7 +86,7 @@ public class SetUnluckyVassal {
         for (UnluckyVassal element : this.sortedSet) {
             if (element.getParent()== null&& element.getName()!="Король") {
                 this.sortedSet.get(this.sortedSet.lastIndexOf(element)).setParent(this.findUnluckyVassal("Король"));
- }
+            }
 
 
         }
