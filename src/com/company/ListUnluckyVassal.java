@@ -36,8 +36,6 @@ public class ListUnluckyVassal {
                 listvassal.add(this.findUnluckyVassal(vassal));
             }
         }
-        listvassal.stream().sorted(Comparator.comparing(UnluckyVassal::getName))
-                .collect(Collectors.toList());
         return listvassal;
     }
 
