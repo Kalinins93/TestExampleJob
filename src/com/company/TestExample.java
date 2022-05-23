@@ -10,10 +10,6 @@ class TestExample{
         LazyKing lazyKing = new LazyKing();
         listUnluckyVassal.writeListUnluckyVassal(lazyKing.getPollResults());
         listUnluckyVassal.sortVassalForKing();
-        for(UnluckyVassal el: listUnluckyVassal.listVassals)
-        { if(el.getVassals()!=null)
-           el.vassals.sort(Comparator.comparing(UnluckyVassal::getName));
-        }
         listUnluckyVassal.printReportForKing();
 
     }

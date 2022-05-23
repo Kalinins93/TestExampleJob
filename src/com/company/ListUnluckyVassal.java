@@ -94,6 +94,10 @@ public class ListUnluckyVassal {
               addVassalKing(element);
             }
         }
+        for (UnluckyVassal element : this.listVassals) {
+            if (element.getVassals() != null)
+                element.vassals.sort(Comparator.comparing(UnluckyVassal::getName));
+        }
     }
     public void printVassals(List<UnluckyVassal> list, int level){
             for (UnluckyVassal el: list
