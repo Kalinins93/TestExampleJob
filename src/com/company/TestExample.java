@@ -1,8 +1,5 @@
 package com.company;
 
-import java.util.*;
-
-
 class TestExample {
 
     public static void main(String[] args) {

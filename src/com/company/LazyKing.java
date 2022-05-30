@@ -6,6 +6,7 @@ public class LazyKing {
     public static List<String> getPollResults() {
         return pollResults;
     }
+
     private static List<String> pollResults = List.of(
             "служанка Аня",
             "управляющий Семен Семеныч: крестьянин Федя, доярка Нюра",

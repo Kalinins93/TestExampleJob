@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ListUnluckyVassal {
     public ArrayList<UnluckyVassal> listVassals;
@@ -75,13 +74,12 @@ public class ListUnluckyVassal {
 
     public void sortVassalForKing() {
         for (UnluckyVassal element : this.listVassals) {
-            if (element.getParent() == null && element.getName() != "Король") {
+            if (element.getParent() == null && !element.getName().equals("Король")) {
                 this.listVassals.get(this.listVassals.lastIndexOf(element)).setParent(this.findUnluckyVassal("Король"));
             }
         }
-        List<UnluckyVassal> list = null;
         for (UnluckyVassal element : this.listVassals) {
-            if (element.getParent() != null && element.getParent().getName() == "Король") {
+            if (element.getParent() != null && element.getParent().getName().equals("Король")) {
                 addVassalKing(element);
             }
         }
@@ -94,7 +92,7 @@ public class ListUnluckyVassal {
     public void printVassals(List<UnluckyVassal> list, int level) {
         for (UnluckyVassal el : list
         ) {
-            String levels = new String("--");
+            String levels = "--";
             int i = 0;
             while (i < level) {
                 levels = levels + levels;
